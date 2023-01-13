@@ -1,0 +1,68 @@
+# Function to replace text in env files with argument
+replace() {
+    sed -i "s|$1|$2|g" ./env/.env-mainnet
+    sed -i "s|$1|$2|g" ./env/.env-testnet
+}
+
+replace_email() {
+    read -p "Введите email: " email
+    replace "%%email%%" $email
+}
+
+replace_domain() {
+    read -p "Введите домен: " domain
+    replace "%%domain%%" $domain
+}
+
+replace_passwords() {
+    read -p "Введите пароль для администратора: " admin_password
+    replace "%%admin_password%%" $admin_password
+
+    # http_password
+    read -p "Введите пароль для http: " http_password
+    replace "%%http_password%%" $http_password
+
+    read -p "Введите пароль для базы данных: " db_password
+    replace "%%db_password%%" $db_password
+}
+
+replace_gnosis_rpc() {
+    read -p "Введите адрес Gnosis RPC: " gnosis_rpc
+    replace "%%gnosis_rpc%%" $gnosis_rpc
+}
+
+replace_infura() {
+    # Escape http in argument
+
+    read -p "Введите адрес Infura: " infura
+    replace "%%infura%%" $infura
+}
+
+replace_operator_seed() {
+    read -p "Введите seed оператор: " operator_seed
+    replace "%%operator_seed%%" $operator_seed
+}
+
+replace_staking_address() {
+    read -p "Введите адрес для стейкинга: " staking_address
+    replace "%%address%%" $staking_address
+}
+
+# Check if folder exist
+if [ -d "./env" ]; then
+    echo "Папка env уже существует"
+    exit 1
+fi
+
+# Create folder
+cp -r ./templates ./env
+
+replace_email
+replace_domain
+replace_passwords
+
+replace_gnosis_rpc
+replace_infura
+
+replace_operator_seed
+replace_staking_address

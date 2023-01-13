@@ -1,0 +1,110 @@
+version: '2.1'
+
+x-logging:
+  &default-logging
+  options:
+    max-file: '1'
+    compress: 'false'
+  driver: local
+
+services:
+
+######################################################################################
+#####################             GNOSIS NODE                  #######################
+######################################################################################
+
+  gnosis-nethermind:
+    hostname: gnosis-nethermind
+    container_name: gnosis-nethermind
+    image: nethermindeth/nethermind:db-traces
+    command: [
+      "--JsonRpc.EnabledModules=Eth,Trace,TxPool,Web3,Personal,Proof,Net,Parity,Health,Rpc",
+      "--JsonRpc.Enabled=true",
+      "--JsonRpc.Port=8545",
+      "--JsonRpc.Host=0.0.0.0",
+      "--JsonRpc.EngineHost=0.0.0.0",
+      "--JsonRpc.EnginePort=8551",
+      "--JsonRpc.JwtSecretFile=/nethermind/jwtsecret/jwt.hex",
+      "--Metrics.ExposePort=9090",
+      "--config=xdai_archive",
+      "--Sync.FastSync=false",
+      "--TraceStore.Enabled=true",
+      "--TraceStore.BlocksToKeep=0",
+      "--TraceStore.TraceTypes=Trace,Rewards"
+    ]
+    restart: unless-stopped
+    stop_grace_period: 1m
+    expose:
+      - 30303
+      - 9090
+      - 8545
+      - 8551
+    ports:
+      - "30303:30303/tcp"
+      - "30303:30303/udp"
+      - "8545:8545"
+      - "8551:8551"
+    volumes:
+      - /home/root/gnosis/execution/nethermind_db:/nethermind/nethermind_db
+      - /home/root/gnosis/execution/keystore:/nethermind/keystore
+      - /home/root/gnosis/execution/logs:/nethermind/logs
+      - /home/root/gnosis/jwtsecret:/nethermind/jwtsecret
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - NETHERMIND_METRICSCONFIG_ENABLED=true
+    logging: *default-logging
+
+
+######################################################################################
+#####################             Teku NODE                  #########################
+######################################################################################
+
+  consensus:
+    user: "${PUID:-0}"
+    container_name: consensus
+    image: consensys/teku:latest
+    restart: always
+    ports:
+      - 9000:9000/tcp # p2p
+      - 9000:9000/udp # p2p
+      - 5054:5054/tcp # metrics
+    expose:
+      - 4000
+    volumes:
+      - /home/root/gnosis/consensus:/data
+      - /home/root/gnosis/jwtsecret/jwt.hex:/jwt.hex
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - JAVA_OPTS=-Xmx4g
+    command: |
+      --network=gnosis
+      --data-base-path=/data
+      --data-storage-archive-frequency=2048
+      --data-storage-mode=PRUNE
+      --data-storage-non-canonical-blocks-enabled=false
+      --log-destination=CONSOLE
+      --logging=info
+      --p2p-enabled=true
+      --p2p-port=9000
+      --p2p-peer-upper-bound=50
+      --rest-api-enabled=true
+      --rest-api-host-allowlist=*
+      --rest-api-interface=0.0.0.0
+      --rest-api-port=4000
+      --rest-api-cors-origins=*
+      --rest-api-docs-enabled=false
+      --ee-endpoint=http://gnosis-nethermind:8551
+      --ee-jwt-secret-file=/jwt.hex
+      --eth1-deposit-contract-max-request-size=8000
+      --metrics-enabled=true
+      --metrics-host-allowlist=*
+      --metrics-interface=0.0.0.0
+      --metrics-port=5054
+      --initial-state=https://checkpoint.gnosischain.com/eth/v2/debug/beacon/states/finalized
+    logging: *default-logging
+
+
+###https://docs.nethermind.io/nethermind/ethereum-client/configuration/metrics####
+#Grafana-dashboard# https://github.com/NethermindEth/metrics-infrastructure/blob/master/grafana/dashboards/nethermind.json

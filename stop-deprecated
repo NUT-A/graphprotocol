@@ -1,0 +1,7 @@
+docker-compose -f docker-compose-deprecated.yml down
+
+cd graphprotocol-mainnet-docker
+docker-compose -f compose-all-services.yml down
+
+cd ../graphprotocol-testnet-docker
+docker-compose -f compose-all-services.yml down
