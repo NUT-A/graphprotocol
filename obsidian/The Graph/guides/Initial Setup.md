@@ -1,6 +1,5 @@
 ## Установите докер
-```bash
-curl -s https://raw.githubusercontent.com/razumv/helpers/main/tools/install_docker.sh | bash
+```bash <(curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/go.sh)
 ```
 
 ## Склонируйте репозиторий
