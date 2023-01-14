@@ -1,0 +1,6 @@
+[submodule "graphprotocol-testnet-docker"]
+	path = graphprotocol-testnet-docker
+	url = https://github.com/NUT-A/graphprotocol-testnet-docker.git
+[submodule "graphprotocol-mainnet-docker"]
+	path = graphprotocol-mainnet-docker
+	url = https://github.com/NUT-A/graphprotocol-mainnet-docker.git
