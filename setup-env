@@ -58,8 +58,11 @@ replace_gnosis_rpc() {
 replace_infura() {
     # Escape http in argument
 
-    read -p "Введите адрес Infura: " infura
-    replace "%%infura%%" $infura
+    read -p "Введите адрес Infura(testnet): " infura
+    replace_testnet "%%infura%%" $infura
+
+    read -p "Введите адрес Infura(mainnet): " infura_mainnet
+    replace_mainnet "%%infura%%" $infura_mainnet
 }
 
 replace_operator_seed() {
