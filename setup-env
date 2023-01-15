@@ -1,3 +1,20 @@
+#!/bin/bash 
+
+version="v1.8.1"
+
+cd $HOME/gravity-bin/
+
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/$version/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/$version/gravity-linux-amd64
+mv gravity-linux-amd64 gravity
+chmod +x *
+
+sudo mv * /usr/bin/
+service gravity restart 
+service orchestrator restart
+
+
+
 replace_mainnet() {
     sed -i "s|$1|$2|g" ./env/.env-mainnet
 }
@@ -47,10 +64,10 @@ replace_infura() {
 
 replace_operator_seed() {
     read -p "Введите seed оператор(testnet): " operator_seed
-    replace_testnet "%%operator_seed%%" $operator_seed
+    replace_testnet "%%operator_seed%%" '"$operator_seed"'
 
     read -p "Введите seed оператор(mainnet): " operator_seed_main
-    replace_mainnet "%%operator_seed%%" $operator_seed_main
+    replace_mainnet "%%operator_seed%%" '"$operator_seed_main"'
 }
 
 replace_staking_address() {
