@@ -1,7 +1,14 @@
-# Function to replace text in env files with argument
-replace() {
+replace_mainnet() {
     sed -i "s|$1|$2|g" ./env/.env-mainnet
+}
+
+replace_testnet() {
     sed -i "s|$1|$2|g" ./env/.env-testnet
+}
+
+replace() {
+    replace_mainnet $1 $2
+    replace_testnet $1 $2
 }
 
 replace_email() {
@@ -39,13 +46,19 @@ replace_infura() {
 }
 
 replace_operator_seed() {
-    read -p "Введите seed оператор: " operator_seed
-    replace "%%operator_seed%%" $operator_seed
+    read -p "Введите seed оператор(testnet): " operator_seed
+    replace_testnet "%%operator_seed%%" $operator_seed
+
+    read -p "Введите seed оператор(mainnet): " operator_seed_main
+    replace_mainnet "%%operator_seed%%" $operator_seed_main
 }
 
 replace_staking_address() {
-    read -p "Введите адрес для стейкинга: " staking_address
-    replace "%%address%%" $staking_address
+    read -p "Введите адрес для стейкинга(testnet): " staking_address
+    replace_testnet "%%address%%" $staking_address
+
+    read -p "Введите адрес для стейкинга(mainnet): " staking_address_main
+    replace_mainnet "%%address%%" $staking_address_main
 }
 
 # Check if folder exist
