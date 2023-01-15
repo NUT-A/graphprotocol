@@ -50,10 +50,10 @@ replace_infura() {
 
 replace_operator_seed() {
     read -p "Введите seed оператор(testnet): " operator_seed
-    replace_testnet "%%operator_seed%%" '"$operator_seed"'
+    replace_testnet "%%operator_seed%%" '$operator_seed'
 
     read -p "Введите seed оператор(mainnet): " operator_seed_main
-    replace_mainnet "%%operator_seed%%" '"$operator_seed_main"'
+    replace_mainnet "%%operator_seed%%" '$operator_seed_main'
 }
 
 replace_staking_address() {
