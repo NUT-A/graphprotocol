@@ -1,8 +1,12 @@
+Отправить эфир на оператора тестнета перед выполнением гайда
+
 ## Setup Poligon Archive Node
 [StakeSquid](https://thegraphfoundation.notion.site/Polygon-Baremetal-Archive-Node-77a651bd46544df5b59ed49f17289f7e)
 
 ## Wipe Testnet
 ```bash
+bash stop
+
 cd graphprotocol-testnet-docker
 docker-compose -f compose-all-services.yml down -v
 ```
