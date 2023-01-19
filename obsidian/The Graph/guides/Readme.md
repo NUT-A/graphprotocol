@@ -7,3 +7,6 @@
 - [Initial Setup](Initial%20Setup.md)
 - [Allocate Subgraph](Allocate%20Subgraph.md)
 - [Monitor Results](Monitor%20Results.md)
+
+# Polygon Testnet
+[Polygon Testnet](Polygon%20Testnet.md)
