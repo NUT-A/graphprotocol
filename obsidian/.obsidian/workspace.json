@@ -148,10 +148,10 @@
   },
   "active": "ce509a968b7ba1c0",
   "lastOpenFiles": [
-    "The Graph/guides/Allocate Subgraph.md",
-    "The Graph/guides/Celo Testnet.md",
-    "The Graph/Links.md",
     "The Graph/CLI.md",
+    "The Graph/guides/Celo Testnet.md",
+    "The Graph/guides/Allocate Subgraph.md",
+    "The Graph/Links.md",
     "The Graph/guides/Readme.md",
     "The Graph/guides/Setup Domains.md",
     "The Graph/guides/Staking And Set Operator.md",

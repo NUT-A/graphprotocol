@@ -61,8 +61,8 @@ graph indexer rules set QmeGpvmEKqwf21YauM95vS6jsCDBjcXoa1KeQppde5tWbh decisionB
 
 ## Fix Grafana
 ```bash
-set -o allexport; source {{path_to_env_folder}}/.env-mainnet; set +o allexport; docker exec -it graphprotocol-mainnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
+set -o allexport; source env/.env-mainnet; set +o allexport; docker exec -it graphprotocol-mainnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
 ```
 ```bash
-set -o allexport; source {{path_to_env_folder}}/.env-testnet; set +o allexport; docker exec -it graphprotocol-testnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
+set -o allexport; source env/.env-testnet; set +o allexport; docker exec -it graphprotocol-testnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
 ```
