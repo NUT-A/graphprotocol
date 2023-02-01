@@ -1,8 +1,5 @@
 Отправить эфир на оператора тестнета перед выполнением гайда
 
-## Setup Poligon Archive Node
-[StakeSquid](https://thegraphfoundation.notion.site/Polygon-Baremetal-Archive-Node-77a651bd46544df5b59ed49f17289f7e)
-
 ## Wipe Testnet
 ```bash
 bash stop
@@ -11,7 +8,7 @@ cd graphprotocol-testnet-docker
 docker-compose -f compose-all-services.yml down -v
 ```
 
-## Add Polygon Chain
+## Add Celo Chain
 [Supporting Multiple Chains](https://github.com/StakeSquid/graphprotocol-testnet-docker/blob/master/docs/getting-started.md#supporting-multiple-chains)
 
 Pull updates
@@ -19,10 +16,9 @@ Pull updates
 git submodule update --init --recursive
 ```
 
-Add to `env/.env-testnet`
-```
-CHAIN_1_NAME="matic"
-CHAIN_1_RPC="http://ip:port"
+Update chains env
+```bash
+bash update-chains
 ```
 
 ## Run without Autoagora
@@ -50,21 +46,23 @@ graph indexer actions execute approved
 ```
 2. Wait for epoch end
 3. Setup new Allocations
-```
+```bash
 cd graphprotocol-testnet-docker
 docker-compose -f compose-indexer.yml exec cli bash
 
-graph indexer rules set QmcWyUejpse9agsiB6xitDhZpyox4aqir4ARReJwUsTY45 decisionBasis always allocationAmount 50000
+graph indexer rules set QmeWfMioAVdipQoxM5WxjtpU3ySYt7aedCECYToST2Rfui decisionBasis always allocationAmount 66666
 
-graph indexer rules set QmZ2egWxWWiEoxujgVVvqLyvh2yNG8Q8QyXvmoWYDiB4Ua decisionBasis always allocationAmount 50000
+graph indexer rules set QmWGXQeVv1jfU2puJAbSXXwLDW4gtd6fhf2D4R2cRP7qCK decisionBasis always allocationAmount 66666
 
-graph indexer rules set QmYe4UxoSPD71dfsgnD8d34M5t3YgswwLLeLRrNJ3v4hqA decisionBasis always allocationAmount 50000
+graph indexer rules set QmeGpvmEKqwf21YauM95vS6jsCDBjcXoa1KeQppde5tWbh decisionBasis always allocationAmount 66666
 ```
+
+Весь оставшийся граф можно раскидать на гносис сабграфы
 
 ## Fix Grafana
 ```bash
-set -o allexport; source {{path_to_env_folder}}/.env-mainnet; set +o allexport; docker exec -it graphprotocol-mainnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
+set -o allexport; source env/.env-mainnet; set +o allexport; docker exec -it graphprotocol-mainnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
 ```
 ```bash
-set -o allexport; source {{path_to_env_folder}}/.env-testnet; set +o allexport; docker exec -it graphprotocol-testnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
+set -o allexport; source env/.env-testnet; set +o allexport; docker exec -it graphprotocol-testnet-docker_postgres_1 psql "-U" ${DB_USER} ${GRAPH_NODE_DB_NAME} "-c" "refresh materialized view info.subgraph_sizes;"
 ```
