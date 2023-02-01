@@ -4,7 +4,7 @@ append_chain() {
         if ! grep -Fq "CHAIN_$1_NAME" "env/.env-$2"
         then
             echo -e "\nCHAIN_$1_NAME=$3" >> "env/.env-$2"
-            echo -e "CHAIN_$1_RPC=$4" >> "env/.env-$2"
+            echo -e "CHAIN_$1_RPC=\"$4\"" >> "env/.env-$2"
         else
             echo -e "\nCHAIN_$1_RPC=$4" >> "env/.env-$2"
         fi
