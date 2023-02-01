@@ -46,7 +46,7 @@ graph indexer actions execute approved
 ```
 2. Wait for epoch end
 3. Setup new Allocations
-```
+```bash
 cd graphprotocol-testnet-docker
 docker-compose -f compose-indexer.yml exec cli bash
 
@@ -56,6 +56,8 @@ graph indexer rules set QmWGXQeVv1jfU2puJAbSXXwLDW4gtd6fhf2D4R2cRP7qCK decisionB
 
 graph indexer rules set QmeGpvmEKqwf21YauM95vS6jsCDBjcXoa1KeQppde5tWbh decisionBasis always allocationAmount 66666
 ```
+
+Весь оставшийся граф можно раскидать на гносис сабграфы
 
 ## Fix Grafana
 ```bash
