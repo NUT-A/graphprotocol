@@ -12,12 +12,12 @@ append_chain() {
 }
 
 append_mainnet_chains() {
-    append_chain "0" "mainnet" "gnosis" "http://5.9.85.107:8545/"
+    append_chain "0" "mainnet" "gnosis" "http://5.9.85.107:8545"
 }
 
 append_testnet_chains() {
-    append_chain "0" "testnet" "gnosis" "http://5.9.85.107:8545/"
-    append_chain "1" "testnet" "celo" "http://65.108.234.153:9656/"
+    append_chain "0" "testnet" "gnosis" "http://5.9.85.107:8545"
+    append_chain "1" "testnet" "celo" "http://65.108.234.153:9656"
 }
 
 append_mainnet_chains
