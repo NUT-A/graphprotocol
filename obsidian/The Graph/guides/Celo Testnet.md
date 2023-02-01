@@ -16,7 +16,7 @@ Pull updates
 git submodule update --init --recursive
 ```
 
-Add to `env/.env-testnet`
+Update chains env
 ```bash
 bash update_chains
 ```

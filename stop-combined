@@ -1,4 +1,4 @@
-docker-compose -f docker-compose-deprecated.yml down
+docker-compose -f docker-compose-combined.yml down
 
 cd graphprotocol-mainnet-docker
 docker-compose -f compose-all-services.yml down

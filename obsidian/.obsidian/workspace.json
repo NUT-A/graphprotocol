@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "The Graph/guides/Readme.md",
+                "file": "The Graph/guides/Celo Testnet.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "The Graph/guides/Readme.md",
+                "file": "The Graph/guides/Celo Testnet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "The Graph/guides/Readme.md",
+                "file": "The Graph/guides/Celo Testnet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "The Graph/guides/Readme.md"
+                "file": "The Graph/guides/Celo Testnet.md"
               }
             }
           }
@@ -148,15 +148,15 @@
   },
   "active": "ce509a968b7ba1c0",
   "lastOpenFiles": [
+    "The Graph/Links.md",
+    "The Graph/CLI.md",
     "The Graph/guides/Celo Testnet.md",
+    "The Graph/guides/Readme.md",
     "The Graph/guides/Allocate Subgraph.md",
     "The Graph/guides/Setup Domains.md",
     "The Graph/guides/Staking And Set Operator.md",
     "The Graph/guides/Initial Setup.md",
-    "The Graph/guides/Readme.md",
     "Wipe testnet.md",
-    "The Graph/guides/Fix Gragfana.md",
-    "Remove Autoagora.md",
-    "The Graph/CLI.md"
+    "The Graph/guides/Fix Gragfana.md"
   ]
 }
