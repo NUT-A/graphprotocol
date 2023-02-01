@@ -8,5 +8,5 @@
 - [Allocate Subgraph](Allocate%20Subgraph.md)
 - [Monitor Results](Monitor%20Results.md)
 
-# Polygon Testnet
-[Polygon Testnet](Polygon%20Testnet.md)
+# Celo Testnet
+[Celo Testnet](Celo%20Testnet.md)
