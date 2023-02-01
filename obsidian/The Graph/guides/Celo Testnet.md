@@ -18,7 +18,7 @@ git submodule update --init --recursive
 
 Update chains env
 ```bash
-bash update_chains
+bash update-chains
 ```
 
 ## Run without Autoagora
