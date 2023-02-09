@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "9a901b10e54dff64",
+        "id": "0e9833dc94e8364f",
         "type": "tabs",
         "children": [
           {
-            "id": "ce509a968b7ba1c0",
+            "id": "42ce00267808d472",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "The Graph/guides/Celo Testnet.md",
-                "mode": "preview",
+                "file": "The Graph/guides/Arbitrum Testnet.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "The Graph/guides/Celo Testnet.md",
+                "file": "The Graph/guides/Arbitrum Testnet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "The Graph/guides/Celo Testnet.md",
+                "file": "The Graph/guides/Arbitrum Testnet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "The Graph/guides/Celo Testnet.md"
+                "file": "The Graph/guides/Arbitrum Testnet.md"
               }
             }
           }
@@ -146,17 +146,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ce509a968b7ba1c0",
+  "active": "42ce00267808d472",
   "lastOpenFiles": [
-    "The Graph/CLI.md",
     "The Graph/guides/Celo Testnet.md",
+    "The Graph/guides/Arbitrum Testnet.md",
     "The Graph/guides/Allocate Subgraph.md",
+    "The Graph/guides/Staking And Set Operator.md",
+    "The Graph/CLI.md",
     "The Graph/Links.md",
     "The Graph/guides/Readme.md",
     "The Graph/guides/Setup Domains.md",
-    "The Graph/guides/Staking And Set Operator.md",
     "The Graph/guides/Initial Setup.md",
-    "Wipe testnet.md",
-    "The Graph/guides/Fix Gragfana.md"
+    "Wipe testnet.md"
   ]
 }
