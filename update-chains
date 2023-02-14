@@ -1,12 +1,22 @@
 append_chain() {
-    if ! grep -Fq "CHAIN_$1_RPC" "env/.env-$2"
+    local chain_rpc="CHAIN_$1_RPC"
+    local chain_name="CHAIN_$1_NAME"
+
+    # If $5 is set, then we are appending a chain to a specific chain id
+    if [ -n "$5" ]
     then
-        if ! grep -Fq "CHAIN_$1_NAME" "env/.env-$2"
+        chain_rpc="CHAIN_$1_RPC_$5"
+        chain_name="CHAIN_$1_NAME_$5"
+    fi
+
+    if ! grep -Fq "$chain_rpc" "env/.env-$2"
+    then
+        if ! grep -Fq "$chain_name" "env/.env-$2"
         then
-            echo -e "\nCHAIN_$1_NAME=$3" >> "env/.env-$2"
-            echo -e "CHAIN_$1_RPC=\"$4\"" >> "env/.env-$2"
+            echo -e "\n$chain_name=$3" >> "env/.env-$2"
+            echo -e "$chain_rpc=\"$4\"" >> "env/.env-$2"
         else
-            echo -e "\nCHAIN_$1_RPC=$4" >> "env/.env-$2"
+            echo -e "\n$chain_rpc=$4" >> "env/.env-$2"
         fi
     fi
 }
@@ -18,7 +28,12 @@ append_mainnet_chains() {
 append_testnet_chains() {
     append_chain "0" "testnet" "gnosis" "http://5.9.85.107:8545"
     append_chain "1" "testnet" "celo" "http://65.108.234.153:9656"
+    
     append_chain "2" "testnet" "arbitrum-one" "http://65.108.199.51:9657"
+    
+    append_chain "2" "testnet" "arbitrum-one" "http://65.108.199.51:9658" "0"
+    append_chain "2" "testnet" "arbitrum-one" "http://65.108.233.219:9657" "1"
+    append_chain "2" "testnet" "arbitrum-one" "http://65.109.20.166:9657" "2"
 }
 
 append_mainnet_chains
