@@ -23,6 +23,15 @@ append_chain() {
 
 append_mainnet_chains() {
     append_chain "0" "mainnet" "gnosis" "http://5.9.85.107:8545"
+    append_chain "1" "mainnet" "celo" "http://65.108.234.153:9656"
+
+    append_chain "2" "mainnet" "arbitrum-one" "http://65.108.199.51:9657"
+    
+    append_chain "2" "mainnet" "arbitrum-one" "http://65.108.199.51:9658" "0"
+    append_chain "2" "mainnet" "arbitrum-one" "http://65.108.233.219:9657" "1"
+    append_chain "2" "mainnet" "arbitrum-one" "http://65.109.20.166:9657" "2"
+
+    append_chain "3" "mainnet" "avalanche" "http://65.21.94.253:9656/ext/bc/C/rpc"
 }
 
 append_testnet_chains() {
