@@ -40,7 +40,7 @@ append_testnet_chains() {
 
     append_chain "3" "testnet" "avalanche" "http://65.21.94.253:9656/ext/bc/C/rpc"
 
-    # append_chain "4" "testnet" "fantom" "..."
+    append_chain "4" "testnet" "fantom" "https://fantom-t.razumv.tech/"
 }
 
 append_mainnet_chains
