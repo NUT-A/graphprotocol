@@ -26,10 +26,7 @@ append_mainnet_chains() {
     append_chain "1" "mainnet" "celo" "http://65.108.234.153:9656"
 
     append_chain "2" "mainnet" "arbitrum-one" "http://65.108.199.51:9657"
-    
     append_chain "2" "mainnet" "arbitrum-one" "http://65.108.199.51:9658" "0"
-    append_chain "2" "mainnet" "arbitrum-one" "http://65.108.233.219:9657" "1"
-    append_chain "2" "mainnet" "arbitrum-one" "http://65.109.20.166:9657" "2"
 
     append_chain "3" "mainnet" "avalanche" "http://65.21.94.253:9656/ext/bc/C/rpc"
 }
@@ -39,12 +36,11 @@ append_testnet_chains() {
     append_chain "1" "testnet" "celo" "http://65.108.234.153:9656"
     
     append_chain "2" "testnet" "arbitrum-one" "http://65.108.199.51:9657"
-    
     append_chain "2" "testnet" "arbitrum-one" "http://65.108.199.51:9658" "0"
-    append_chain "2" "testnet" "arbitrum-one" "http://65.108.233.219:9657" "1"
-    append_chain "2" "testnet" "arbitrum-one" "http://65.109.20.166:9657" "2"
 
     append_chain "3" "testnet" "avalanche" "http://65.21.94.253:9656/ext/bc/C/rpc"
+
+    append_chain "4" "testnet" "fantom" "https://fantom-t.razumv.tech/"
 }
 
 append_mainnet_chains
