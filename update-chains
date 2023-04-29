@@ -43,6 +43,9 @@ append_testnet_chains() {
     append_chain "4" "testnet" "fantom" "https://fantom-t.razumv.tech/"
 
     append_chain "5" "testnet" "optimism" "http://65.108.234.153:9657"
+    append_chain "5" "testnet" "optimism" "http://65.109.87.88:9991/" "0"
+
+
     append_chain "6" "testnet" "polygon" "http://65.108.238.219:8545"
 }
 
