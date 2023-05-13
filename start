@@ -3,7 +3,7 @@ git submodule update --init --recursive
 set -o allexport; source env/.env-mainnet; set +o allexport
 cd graphprotocol-mainnet-docker; envsubst < graph-node-configs/config.tmpl > graph-node-configs/config.toml; 
 
-docker-compose -f compose-all-services.yml up -d --remove-orphans --build $@
+docker-compose -f compose-autoagora.yml -f compose-graphnode.yml -f compose-monitoring.yml -f compose-optional.yml up -d --remove-orphans --build $@
 
 cd ..
 set -o allexport; source env/.env-testnet; set +o allexport
