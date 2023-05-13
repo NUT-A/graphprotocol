@@ -29,6 +29,10 @@ append_mainnet_chains() {
     append_chain "2" "mainnet" "arbitrum-one" "http://65.108.199.51:9658" "0"
 
     append_chain "3" "mainnet" "avalanche" "http://65.21.94.253:9656/ext/bc/C/rpc"
+
+    append_chain "4" "testnet" "fantom" "https://fantom-t.razumv.tech/"
+
+    append_chain "6" "testnet" "polygon" "http://65.108.238.219:8545"
 }
 
 append_testnet_chains() {
