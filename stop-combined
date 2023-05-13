@@ -1,7 +1,7 @@
 docker-compose -f docker-compose-combined.yml down
 
 cd graphprotocol-mainnet-docker
-docker-compose -f compose-all-services.yml down
+docker-compose -f compose-autoagora.yml -f compose-graphnode.yml -f compose-monitoring.yml -f compose-optional.yml down
 
 cd ../graphprotocol-testnet-docker
 docker-compose -f compose-graphnode.yml -f compose-indexer.yml -f compose-monitoring.yml down
